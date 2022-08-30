@@ -14,8 +14,7 @@ export class AppRoot {
         </header>
 
         <main>
-          <app-todo></app-todo>   
-          <app-tst></app-tst>
+          <app-todo></app-todo> 
         </main>
       </div>
     );
