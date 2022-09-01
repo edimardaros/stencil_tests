@@ -1,18 +1,10 @@
-import { Component, Host, h } from '@stencil/core';
+import { h } from '@stencil/core';
 
-@Component({
-  tag: 'app-table',
-  // styleUrl: 'app-table.css',
-  shadow: true,
-})
-export class AppTable {
-
-  render() {
-    return (
-      <Host>
-        <slot></slot>
-      </Host>
-    );
-  }
-
-}
+// É um componente funcional (corpo dele é diferente dos demais)
+// a maneira de usar é diferente.
+// const TableComponent = (props, children) => (
+export const TableComponent = (_, children) => (
+  <div class="minhas-tarefas">
+    {children}
+  </div>
+)

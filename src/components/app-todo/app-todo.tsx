@@ -1,4 +1,5 @@
 import { Component, h, Host, State } from '@stencil/core';
+import { TableComponent } from '../app-table/app-table';
 
 @Component({
   tag: 'app-todo',
@@ -24,9 +25,12 @@ export class TodoComponent {
     return (
      <Host> 
       <app-form onAddTask={this.handleAdd}></app-form>
-      <ul>
-        {this.tasks.map((t, i) => <li key={i}>{t}</li>)}
-      </ul>
+      <TableComponent>
+        <ul>
+          {this.tasks.map((t, i) => <li key={i}>{t}</li>)}
+        </ul>
+      </TableComponent>
+      
      </Host>
     );
   }
