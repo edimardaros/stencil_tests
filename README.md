@@ -41,6 +41,8 @@ npm run test.watch
 ```
 
 
+
+Generate Custom component
 ```
 npm run generate
 ```

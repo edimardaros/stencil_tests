@@ -1,24 +1,23 @@
-import { Component, h, Listen } from '@stencil/core';
+import { Component, h, Host, State } from '@stencil/core';
 
 @Component({
   tag: 'app-todo',
   styleUrl: 'app-todo.css',
   shadow: true,
 })
-export class AppTodo {
+export class TodoComponent {
 
-  @Listen('click',{ capture: true})
-  handleAddClick(ev: Event) {
-    ev.preventDefault() // Para evtar de recarregar a página toda ao clicar no button
-    console.log('Adicionando....');
-  }
+  @State() tasks: string[] = [];
 
   render() {
+    // Host substitui a div no Stencil
     return (
-     <form>
-      <input></input>
-      <button>Adicionar</button>
-     </form>
+     <Host> 
+      <app-form></app-form>
+      <ul>
+        {this.tasks.map((t, i) => <li key={i}>{t}</li>)}
+      </ul>
+     </Host>
     );
   }
 
