@@ -1,4 +1,4 @@
-import { Component, Host, h, State } from '@stencil/core';
+import { Component, Host, h, State, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'app-form',
@@ -8,13 +8,14 @@ import { Component, Host, h, State } from '@stencil/core';
 export class AppForm {
 
   @State() task: string = '';
+  @Event() addTask: EventEmitter;
   
   //@Listen('click',{ capture: true})
   handleSubmite = (ev: Event) => {
     ev.preventDefault() // Para evtar de recarregar a página toda ao clicar no button
     console.log('Adicionando....');
     if (this.task.trim()) {
-      // this.tasks.push(this.task);
+      this.addTask.emit(this.task);
       this.task = '';
     }
   }

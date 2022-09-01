@@ -49,6 +49,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface AppForm {
+        "onAddTask"?: (event: CustomEvent<any>) => void;
     }
     interface AppRoot {
     }
