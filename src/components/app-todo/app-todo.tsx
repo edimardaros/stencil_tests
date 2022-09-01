@@ -20,6 +20,16 @@ export class TodoComponent {
 
   }
 
+  // Ciclos de vida
+  // componentDidLoad() -> chama quando carrega o componente, 1ª render
+  componentDidLoad() {
+    console.log('Carreguei');
+  }
+  // chama logo após atualização de algum estado ou propriedade
+  componentDidUpdate()  {
+    console.log('Atualizei');
+  }
+
   render() {
     // Host substitui a div no Stencil
     return (
