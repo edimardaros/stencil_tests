@@ -10,6 +10,9 @@ export namespace Components {
     }
     interface AppRoot {
     }
+    interface AppTitle {
+        "title": string;
+    }
     interface AppTodo {
     }
 }
@@ -26,6 +29,12 @@ declare global {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
     };
+    interface HTMLAppTitleElement extends Components.AppTitle, HTMLStencilElement {
+    }
+    var HTMLAppTitleElement: {
+        prototype: HTMLAppTitleElement;
+        new (): HTMLAppTitleElement;
+    };
     interface HTMLAppTodoElement extends Components.AppTodo, HTMLStencilElement {
     }
     var HTMLAppTodoElement: {
@@ -35,6 +44,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "app-form": HTMLAppFormElement;
         "app-root": HTMLAppRootElement;
+        "app-title": HTMLAppTitleElement;
         "app-todo": HTMLAppTodoElement;
     }
 }
@@ -44,11 +54,15 @@ declare namespace LocalJSX {
     }
     interface AppRoot {
     }
+    interface AppTitle {
+        "title"?: string;
+    }
     interface AppTodo {
     }
     interface IntrinsicElements {
         "app-form": AppForm;
         "app-root": AppRoot;
+        "app-title": AppTitle;
         "app-todo": AppTodo;
     }
 }
@@ -58,6 +72,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "app-form": LocalJSX.AppForm & JSXBase.HTMLAttributes<HTMLAppFormElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "app-title": LocalJSX.AppTitle & JSXBase.HTMLAttributes<HTMLAppTitleElement>;
             "app-todo": LocalJSX.AppTodo & JSXBase.HTMLAttributes<HTMLAppTodoElement>;
         }
     }
